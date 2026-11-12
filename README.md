@@ -1,0 +1,24 @@
+import random
+
+print("Привет! Давай сыграем в игру: я загадаю число от 1 до 100, а ты попробуй угадать.")
+
+# Компьютер загадывает случайное число
+secret_number = random.randint(1, 100)
+attempts = 0
+
+while True:
+    try:
+        # Получаем ввод от пользователя
+        guess = int(input("Введи своё число: "))
+        attempts += 1
+
+        # Сравниваем и даём подсказки
+        if guess < secret_number:
+            print("Слишком мало! Попробуй больше.")
+        elif guess > secret_number:
+            print("Слишком много! Попробуй меньше.")
+        else:
+            print(f"Ура! Ты угадал число {secret_number} за {attempts} попыток.")
+            break
+    except ValueError:
+        print("Пожалуйста, введи целое число, а не буквы.")
